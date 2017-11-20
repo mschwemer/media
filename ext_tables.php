@@ -65,7 +65,7 @@ if (TYPO3_MODE === 'BE') {
         ],
         [
             'access' => 'user,group',
-            'icon' => 'EXT:media/ext_icon.svg',
+            'icon' => 'EXT:media/Resources/Public/Icons/Extension.svg',
             'labels' => 'LLL:EXT:media/Resources/Private/Language/locallang_module.xlf',
         ]
     );
@@ -77,7 +77,7 @@ if (TYPO3_MODE === 'BE') {
         \Fab\Vidi\Module\ModuleLoader::class,
         'sys_file'
     );
-    $moduleLoader->setIcon('EXT:media/ext_icon.svg')
+    $moduleLoader->setIcon('EXT:media/Resources/Public/Icons/Extension.svg')
         ->setModuleLanguageFile($moduleFileLanguage)
         ->setMainModule($defaultMainModule)
         ->addJavaScriptFiles([
@@ -181,15 +181,15 @@ if (TYPO3_MODE === 'BE') {
 
 // Add new sprite icon.
 $icons = [
-    'image-edit' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/image_edit.png',
-    'image-link' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/image_link.png',
-    'image-export' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/image_export.png',
-    'storage-change' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/folder_go.png',
+    'image-edit' => 'EXT:media/Resources/Public/Icons/image_edit.png',
+    'image-link' => 'EXT:media/Resources/Public/Icons/image_link.png',
+    'image-export' => 'EXT:media/Resources/Public/Icons/image_export.png',
+    'storage-change' => 'EXT:media/Resources/Public/Icons/folder_go.png',
 ];
 /** @var \TYPO3\CMS\Core\Imaging\IconRegistry $iconRegistry */
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 foreach ($icons as $key => $icon) {
-    $iconRegistry->registerIcon('extensions-' . $_EXTKEY . '-' . $key,
+    $iconRegistry->registerIcon('extensions-media-' . $key,
         \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
         [
             'source' => $icon
